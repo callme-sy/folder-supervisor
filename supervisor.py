@@ -1,8 +1,8 @@
+from datetime import datetime
 import json, subprocess
+from os.path import join, getsize
 from argparse import ArgumentParser
 from os import walk
-from os.path import join, getsize
-from datetime import datetime
 
 #Les arguments qu'on va utiliser :
 parser = ArgumentParser(description="Traquer les changements dans un dossier. Ajouts et suppressions,\n \
