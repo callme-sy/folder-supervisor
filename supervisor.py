@@ -18,3 +18,7 @@ parser.add_argument("--schedule", dest="daySchedule", default="",  help="Definit
 parser.add_argument("--persistentAlert", action='store_true',  help="Notification en fenetre avec un bouton OK si activé")
 
 args = parser.parse_args()
+
+#Definir snapshot
+
+#Definir alertes
