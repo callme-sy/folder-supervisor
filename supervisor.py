@@ -22,4 +22,32 @@ args = parser.parse_args()
 
 #Definir snapshot
 
+def __init__(self, root, log_dir=''):
+        
+        self.root = root # the directory that we will monitor and track changes
+        self.log_dir = log_dir # the directory where the logs and json files will be kept
+
+        self.previous_state = self.readPrevState()  # a structure to hold all dir and file info of our previous snapshot
+        self.current_state = {}  # a structure to hold all dir and file info of the current state
+        
+        self.added_dirs = []    # a list of directories added along with file and subdir info
+        self.deleted_dirs = []  # a list of directories deleted along with the total size and number of files in them
+        self.added_files = {}   # a dictionary of files added. filename is the key, size is the value
+        self.deleted_files = {} # a dictionary of files deleted. filename is the key, size is the value
+        self.changed_files = {} # a dictionary of files changed. filename is the key, a tuple (old_size, new_size) is the value 
+
+        self.added_total_size = 0   # The total size in bytes of all files added
+        self.deleted_total_size = 0 # The total size in bytes of all files deleted
+        self.changed_total_size = 0 # The total size in bytes of all files changes
+        self.added_total_num = 0   # The total number of all files added
+        self.deleted_total_num = 0 # The total number of all files deleted
+        self.changed_total_num = 0 # The total number of all files changed
+
+        self.current_total_size = 0 # The total size of all files inside the tracked dir
+        self.current_total_file_num = 0 # The total number of all files inside the tracked dir
+        self.current_total_dir_num = 0 # The total number of all subdirs inside the tracked dir
+    
+        self.summary = ''  # A string to contain a summary of the additions/deletions/changes
+
+
 #Definir alertes
