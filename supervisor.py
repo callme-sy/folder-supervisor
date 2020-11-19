@@ -49,5 +49,21 @@ def __init__(self, root, log_dir=''):
     
         self.summary = ''  # A string to contain a summary of the additions/deletions/changes
 
+ '''
+    Read the previous state of the root directory from a special file. 
+    If the file does not exist or is corrupted, return an empty dict
+    '''
+    def readPrevState(self):
 
+        prev_state_filename = 'track{}.json'.format(self.root.replace('/','_'))
+        try:
+            with open(join(self.log_dir, prev_state_filename)) as state_file:
+                return json.load(state_file) # note: strings are returned as unicode strings
+
+        except (IOError, ValueError):
+            return {}
+
+    '''
+      
+      
 #Definir alertes
