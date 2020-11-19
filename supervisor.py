@@ -53,7 +53,7 @@ def __init__(self, root, log_dir=''):
     Read the previous state of the root directory from a special file. 
     If the file does not exist or is corrupted, return an empty dict
     '''
-    def readPrevState(self):
+def readPrevState(self):
 
         prev_state_filename = 'track{}.json'.format(self.root.replace('/','_'))
         try:
